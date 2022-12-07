@@ -1,0 +1,53 @@
+{
+    "name": "Quran Radio",
+    "description": "بوت القرآن الكريم في قناتك",
+    "logo": "https://telegra.ph/file/4000307d8e62ddc23ffc4.jpg",
+    "keywords": [
+        "py-tgcalls",
+        "pyrogram"
+    ],
+    "website": "https://t.me/DevZaid",
+    "repository": "https://github.com/x72x/quran",
+    "success_url": "https://t.me/Y88F8",
+    "env": {
+        "API_ID": {
+            "description": "قم بوضع الايبي ايدي هنا",
+            "required": true,
+            "value": ""
+        },
+        "API_HASH": {
+            "description": "قم بوضع الايبي هاش",
+            "required": true,
+            "value": ""
+        },
+        "SESSION": {
+            "description": "قم بوضع كود الجلسة بايروجرام 2.0",
+            "required": true,
+            "value": ""
+        },
+        "CHAT_ID": {
+            "description": "قم بوضع ايدي قناتك",
+            "required": true,
+            "value": "-100123456789"
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        },
+        {
+            "url": "heroku/nodejs"
+        },
+        {
+            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "stack": "container"
+}
