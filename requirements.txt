@@ -1,5 +1,4 @@
 tgcrypto
-py-tgcalls
 pyrogram
 pytube
 Python-arq
