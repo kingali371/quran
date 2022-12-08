@@ -1,5 +1,7 @@
 import asyncio, os, threading
 
+from .server import web_server
+
 from pyrogram import Client
 
 from pytgcalls import PyTgCalls 
@@ -45,19 +47,14 @@ app = Client(
 
 )
 
-from flask import Flask
-
-site = Flask(__name__)
-call_py = PyTgCalls(app)
-
-@site.route("/")
-def hello():
-  return "Hi"
+PORT = os.environ.get("PORT", "8080")
 
 async def main ():
   await call_py.start()
-  threading.Thread(target=site.run, daemon=True).start()
-  print("✅")
+  app = web.AppRunner(await web_server())
+  await app.setup()
+  bind_address = "0.0.0.0"
+  await web.TCPSite(app, bind_address, PORT).start()
   while True:
    await call_py.join_group_call(CHAT_ID,AudioPiped("https://bit.ly/3OWfmUp"),stream_type=StreamType().pulse_stream,)
    await asyncio.sleep(82753+10)
