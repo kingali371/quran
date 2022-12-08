@@ -1,6 +1,6 @@
 import asyncio, os, threading
 
-from .server import web_server
+from server import web_server
 
 from pyrogram import Client
 
