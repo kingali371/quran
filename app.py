@@ -14,7 +14,6 @@ from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 
 from pytgcalls.types.input_stream.quality import HighQualityAudio,    HighQualityVideo,    LowQualityVideo,    MediumQualityVideo
 
-from pytube import YouTube
 
 import aiohttp
 
@@ -47,7 +46,8 @@ app = Client(
 
 )
 
-PORT = os.environ.get("PORT", "8080")
+call_py = PyTgCalls(app)
+PORT = "8080"
 
 async def main ():
   await call_py.start()
@@ -55,6 +55,7 @@ async def main ():
   await app.setup()
   bind_address = "0.0.0.0"
   await web.TCPSite(app, bind_address, PORT).start()
+  print("🎉✅🎉")
   while True:
    await call_py.join_group_call(CHAT_ID,AudioPiped("https://bit.ly/3OWfmUp"),stream_type=StreamType().pulse_stream,)
    await asyncio.sleep(82753+10)
