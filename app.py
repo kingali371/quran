@@ -54,9 +54,12 @@ call_py = PyTgCalls(app)
 def hello():
   return "Hi"
 
-call_py.start()
-threading.Thread(target=site.run, daemon=True).start()
-print("✅")
-while True:
-   call_py.join_group_call(CHAT_ID,AudioPiped("https://bit.ly/3OWfmUp"),stream_type=StreamType().pulse_stream,)
-   asyncio.sleep(82753+10)
+async def main ():
+  await call_py.start()
+  threading.Thread(target=site.run, daemon=True).start()
+  print("✅")
+  while True:
+   await call_py.join_group_call(CHAT_ID,AudioPiped("https://bit.ly/3OWfmUp"),stream_type=StreamType().pulse_stream,)
+   await asyncio.sleep(82753+10)
+
+asyncio.run(main())
