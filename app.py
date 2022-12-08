@@ -17,6 +17,8 @@ from pytgcalls.types.input_stream.quality import HighQualityAudio,    HighQualit
 
 import aiohttp
 
+from aiohttp import web
+
 from Python_ARQ import ARQ
 
 from pyrogram.types import Message
