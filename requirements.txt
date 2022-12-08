@@ -1,7 +1,6 @@
 aiohttp
 tgcrypto
 pyrogram
-pytube
 Python-arq
 asyncio
 aiohttp 
