@@ -1,5 +1,6 @@
 aiohttp
 tgcrypto
+pySmartDL 
 pyrogram
 py-tgcalls
 Python-arq
