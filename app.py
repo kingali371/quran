@@ -1,5 +1,5 @@
 import asyncio, os, threading
-
+from pySmartDL import SmartDL 
 from server import web_server
 
 from pyrogram import Client
@@ -58,8 +58,10 @@ async def main ():
   bind_address = "0.0.0.0"
   await web.TCPSite(app, bind_address, PORT).start()
   print("🎉✅🎉")
-  while True:
-   await call_py.join_group_call(CHAT_ID,AudioPiped("https://bit.ly/3OWfmUp"),stream_type=StreamType().pulse_stream,)
-   await asyncio.sleep(82753+10)
+  obj = SmartDL ('https://bit.ly/3OWfmUp', verify=False)
+  obj.start()
+  audio = obj.get_dest()
+  await call_py.join_group_call(CHAT_ID,AudioPiped(audio),stream_type=StreamType().pulse_stream,)
+  await idle()
 
 asyncio.run(main())
