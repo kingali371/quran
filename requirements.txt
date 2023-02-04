@@ -1,6 +1,7 @@
 aiohttp
 tgcrypto
 pyrogram
+py-tgcalls
 Python-arq
 asyncio
 aiohttp 
